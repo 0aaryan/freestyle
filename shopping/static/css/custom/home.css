@@ -1,0 +1,17 @@
+
+body{
+    background-color:#000000;
+}
+
+#intro{
+    background-image: url('../img/homepage.jpg');
+    height: 400px;
+}
+
+
+
+@media (min-width: 576px) {
+    #intro {
+        height: 600px;
+    }
+}

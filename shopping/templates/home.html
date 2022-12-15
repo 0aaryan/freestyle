@@ -1,0 +1,121 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="p-5 text-center bg-image" style="background-image:url('{% static 'img/homepage.jpg' %}'); height: 400px;">
+<div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+  <div class="d-flex justify-content-center align-items-center h-100">
+    <div class="text-white">
+      <h1 class="mb-3">FreeStyle</h1>
+      <h4 class="mb-3">Feel free to choose your own style</h4>
+      <a class="btn btn-outline-light btn-lg m-2" href="#!" role="button"
+      >Buy Now</a>
+    </div>
+  </div>
+</div>
+
+{% endblock header %}
+
+{% block main %}
+<main>
+    <div class="container-fluid">
+      <section id="products" class="text-center text-white my-5"> 
+        <h2 class="my-3">Our Products</h2>
+        <div class="btn-group mb-3">
+          <button class="btn btn-dark btn-lg" type="button">CATAGORIES</button>
+          <button
+            type="button"
+            class="btn btn-lg btn-dark dropdown-toggle dropdown-toggle-split"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu text-uppercase">
+            <li><a class="dropdown-item" href="all">ALL</a></li>
+            {% for i in param2.category %}
+            <li><a class="dropdown-item" href="{{i.name}}">{{i.name}}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="container">
+          {% for i in param1.product %}
+          {% if forloop.counter0|divisibleby:3 %}
+            <div class="row justify-content-center">
+          {% endif %}
+          <div class="col-md-3 my-3">       
+            <div class="card text-center border border-white shadow-0 ">
+              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img src= "/media/{{i.image}}" class="img-fluid" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                </a>
+              </div>  
+              <div class="card-body text-white bg-black">
+                <h5 class="card-title text-uppercase">{{i.product_title}}</h5>
+                <p class="card-text text-uppercase">
+                  {{i.product_category}}
+                </p>
+                <p class="card-text">
+                  Rs {{i.product_price}}
+                </p>
+                <p>
+                <a href = "{% url 'product' i.product_id %}">
+                  <button type="button" class="btn btn-white btn-rounded   " data-mdb-ripple-color="#000000"> Buy Now</button>
+                </a>
+                <p>
+                <a href = "{% url 'product' i.product_id %}">
+                  <button type="button" class="btn btn-outline-white btn-rounded   " data-mdb-ripple-color="#000000"> Add To Cart</button>
+                </p>
+                </a>
+              </div>
+            </div>
+          </div>
+          {% if forloop.counter|divisibleby:3 %}
+            </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <div class="container-fluid">
+        <section id="about" class="text-center text-white">
+          <h2 class="my-5">About us</h2>
+
+          <div class="row justify-content-center align-items-center">
+            <div class="col-md-4 text-right">
+              <h2>Instagram</h2>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores provident, dolor earum molestias voluptates excepturi perferendis ipsa quia corporis. Ratione esse cupiditate ut tempore similique itaque ipsa quas maiores voluptates?
+              </p>
+            </div>
+            <div class="col-md-4">
+              <img src="{% static "/img/insta.jpg" %}" alt="Instagram" class="img-fluid" height="200" width="200"/>
+            </div>
+          </div>
+          <div class="row justify-content-center align-items-center">
+            <div class="col-md-4 text-right">
+              <h2>Facebook</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad recusandae voluptatum velit! Corporis aliquid atque eum debitis laudantium error cum ipsum illo beatae inventore. Pariatur numquam accusantium nesciunt rerum doloribus!
+              </p>
+            </div>
+            <div class="col-md-4">
+              <img src="{% static "/img/facebook.jpg" %}" alt="Facebook" class="img-fluid" height="200" width="200" />
+            </div>
+          </div>
+        </section>
+
+      
+      </div>
+
+    </div>
+
+
+  </main>
+
+
+{% endblock main%}
+
+

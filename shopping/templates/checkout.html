@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+{% if messages %}
+{% for message in messages%}
+<p {%if message.tags%} class="alert alert-{{message.tags}} mb-5" {%endif%}> {{message}} </p>
+{% endfor %}{% endif %}
+
+
+<section style="background-color: #000;">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col">
+          <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'cart' %}">Cart</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <div class="col flex justify-content-center">
+      <div class="col-md-12 justify-content-center">
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <h5 class="mb-0">Delivery Details</h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush mb-2">
+            {% for key,value in details.items %}
+              <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0 text-uppercase">
+                {{key}}
+                <span>{{value}}</span>
+              </li>
+              {% endfor %}
+            </ul>
+
+            {% if details %}
+            <a href="{% url 'editprofile' %}"
+            <button type="button" class="btn btn-dark btn-lg btn-block">
+              Edit Details
+            </button>
+            </a>
+            {% else %}
+            <a href="{% url 'addprofile' %}"
+            <button type="button" class="btn btn-dark btn-lg btn-block">
+              Add Details
+            </button>
+            </a>
+            {% endif %}
+          </a>
+          </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col justify-content-center"
+      <div class="col-md-8 justify-content-center">
+        <div class="card mb-8">
+          <div class="card-header py-3">
+            <h5 class="mb-0">Summary</h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                Products
+                <span>Rs {{total_price}}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                Shipping
+                <span>Rs {{shipping}}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                <div>
+                  <strong>Total amount</strong>
+                  <strong>
+                    <p class="mb-0">(including GST)</p>
+                  </strong>
+                </div>
+                <span><strong>Rs {{total_amount}}</strong></span>
+              </li>
+            </ul>
+            <a href="{% url 'checkout' %}">
+            <button type="button" class="btn btn-dark btn-lg btn-block">
+              Proceed To Payment
+            </button>
+          </a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+{% endblock main %}

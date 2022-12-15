@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<section class="p-4 d-flex justify-content-center w-100">
+  <div class="card" style="max-width: 720px;">
+    <div class="row g-0">
+      <div class="col-md-6">
+        <div id="carouselDarkVariant" class="carousel slide carousel-fade carousel-dark" data-mdb-ride="carousel">
+          <!-- Indicators -->
+          <div class="carousel-indicators">
+            <button
+              data-mdb-target="#carouselDarkVariant"
+              data-mdb-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              data-mdb-target="#carouselDarkVariant"
+              data-mdb-slide-to="1"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              data-mdb-target="#carouselDarkVariant"
+              data-mdb-slide-to="2"
+              aria-label="Slide 1"
+            ></button>
+          </div>
+        
+          <!-- Inner -->
+          <div class="carousel-inner">
+            <!-- Single item -->
+            <div class="carousel-item active">
+              <img src="/media/{{product.image}}" class="d-block w-100" alt="Motorbike Smoke"/>
+
+            </div>
+        
+            <!-- Single item -->
+            <div class="carousel-item">
+              <img src="/media/{{product.image}}" class="d-block w-100" alt="Mountaintop"/>
+
+            </div>
+        
+            <!-- Single item -->
+            <div class="carousel-item">
+              <img src="/media/{{product.image}}" class="d-block w-100" alt="Woman Reading a Book"/>
+
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-md-6">
+
+        <div class="card-body text-center">
+          <h5 class="card-title">{{product.product_title}}</h5>
+          <a href={% url 'home' product.product_category.name%}>
+          <h6 class="text-uppercase"><u>{{product.product_category.name}}s</u></h6>
+          </a>
+
+          {% comment %} price cart and buy button {% endcomment %}
+          <div class="justify-content-center">
+            <h4 class="card-title mt-2">Rs.{{product.product_price}}<small class="fw-light mx-2 text-decoration-line-through">{{price_without_discount}}</small></h4>
+          </div>
+
+          <p class="card-text">
+              {% for detail in details%}
+              <h6>{{detail}}</h6>
+              {% endfor %}
+          </p>
+          <div class="justify-content-center">
+            <button type="button" class="btn btn-dark btn-rounded btn-block btn-lg  btn-lg" data-mdb-ripple-color="#ffffff"> Buy Now </button>
+            <a href={% url 'addtocart' product.product_id%}
+            <button type="button" class="btn btn-outline-dark btn-rounded  btn-block btn-lg" data-mdb-ripple-color="#000000"> Add To Cart <i class="fas fa-shopping-cart ms-1"></i></button>
+            </a
+          </div>
+          <p class="card-text">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </p>
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  {% endblock main %}

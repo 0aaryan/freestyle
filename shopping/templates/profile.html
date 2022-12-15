@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+<section style="background-color: #000;">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col">
+          <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Profile</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+            <i class="fas fa-user-circle fa-5x" style="color:black"></i>
+              {% comment %} <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 50px;"> {% endcomment %}
+              <h5 class="my-3">@{{user}}</h5>
+              <div class="d-flex justify-content-center mb-2">
+                {% if details %}
+                <a href="{% url 'editprofile' %}">
+                <button type="button" class="btn btn-black">Edit Details</button>
+                </a>
+                {% else %}
+                <a href="{% url 'addprofile' %}">
+                <button type="button" class="btn btn-black" data-bs-toggle="modal" data-bs-target="#exampleModal">Add
+                    Details</button>
+              {% endif %}
+              </a>
+            </div>
+          </div>
+        </div>
+        {% if details %}
+        <div class="col">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Full Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{details.name}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{details.email}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Phone</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{details.phone}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Address</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{details.address}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">City</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{details.city}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">State</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{details.state}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        </div>
+        </div>
+        </section>
+
+
+{% endblock main %}
