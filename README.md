@@ -2,8 +2,8 @@
 <!---
 
 {
-  "show_on_portfolio : true,
-  "featured:true,
+  "show_on_portfolio": true,
+  "featured": true,
   "items": [
     {
       "title": "Freestyle E-commerce App (Django)",
