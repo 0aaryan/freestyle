@@ -8,7 +8,7 @@
     {
       "title": "Freestyle E-commerce App (Django)",
       "content": "A full-stack e-commerce app built with Django. Users can shop, manage profiles, and view order history.",
-      "image": "/path/to/your/image.png",
+      "image": "https://github.com/0aaryan/freestyle/assets/73797587/1e0b9753-3f68-46f2-b8ba-ba78454aec1f",
       "featured": {
         "name": "Demo",
         "link": "http://freeyourstyle.pythonanywhere.com"
@@ -31,6 +31,8 @@
 }
 
 --->
+![image](https://github.com/0aaryan/freestyle/assets/73797587/1e0b9753-3f68-46f2-b8ba-ba78454aec1f)
+
 Freestyle is a full-stack e-commerce application developed using Django, a popular web framework in Python. The app allows users to browse through a variety of products, add them to their cart, and proceed to checkout for payment. Registered users can manage their profiles and view their order history.
 
 ## Technical Details
