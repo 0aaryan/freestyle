@@ -3,15 +3,15 @@
 
 {
   "show_on_portfolio": true,
-  "featured": true,
-  "items": [
+  "priority": true,
+  "details": 
     {
       "title": "Freestyle E-commerce App (Django)",
       "content": "A full-stack e-commerce app built with Django. Users can shop, manage profiles, and view order history.",
       "image": "/path/to/your/image.png",
       "featured": {
         "name": "Demo",
-        "link": "https://your-project-demo-url.com"
+        "link": "http://freeyourstyle.pythonanywhere.com"
       },
       "badges": [
         "Django",
@@ -20,15 +20,14 @@
       "links": [
         {
           "icon": "fab fa-github",
-          "url": "https://github.com/your-username/your-project-repo"
+          "url": "https://github.com/0aaryan/freestyle"
         },
         {
           "icon": "fas fa-external-link-alt",
-          "url": "https://your-project-website.com"
+          "url": "http://freeyourstyle.pythonanywhere.com"
         }
       ]
     }
-  ]
 }
 
 --->
